@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <body class="stretched">
+      <section id="page-title">
+
+
+        <div class="container">
+            <h1>News </h1>
+            {% if user.is_professional or user.is_superuser %}
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{%url 'news_create' %}" class="btn btn-primary" style="color: #fff">Create News Article </a></li>
+              </ol>
+            {% endif %}
+        
+        </div>
+
+    </section><!-- #page-title end -->
+
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+                <div class="row">
+                  {% for news in news %}
+                    <div class="entry event col-12 evnthover">
+                        <div class="grid-inner row align-items-center no-gutters p-3" border: 3px solid #f4f4f4;
+    border-radius: 5px;>
+                            <div class="col-md-12 pl-md-1">
+                                <div class="entry-title title-sm">
+                                    <h2> <a href="{% url 'news_detail' news.id %}" class="link-light">{{ news.title }}</a></h2>
+                                </div>
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li><a href="#"><i class="icon-time"></i>{{ news.creation_date }}</a></li>
+                                    </ul>
+                                </div>
+                                <div class="entry-content">
+                                    <p> {{ news.content|safe|slice:":200"}}...</p>
+                                    <a href="{% url 'news_detail' news.id %}" class="btn btn-primary" disabled="disabled">Read More</a>
+                          
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo;First </a>&nbsp;
+            <a href="?page={{ page_obj.previous_page_number }}">&lt;Previous</a>&nbsp;
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next&gt;</a>&nbsp;
+            <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </body>
+  </html>
+{% endblock %}

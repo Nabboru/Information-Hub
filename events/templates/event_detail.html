@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <body class="stretched">
+      <section id="page-title">
+
+        <div class="container">
+            <h1>Events</h1>
+
+        </div>
+
+    </section><!-- #page-title end -->
+
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+                <div class="row">
+                    <div class="entry event col-12 evnthover">
+                        <div class="grid-inner row align-items-center no-gutters p-3" border: 3px solid #f4f4f4;
+    border-radius: 5px;>
+                            <div class="col-md-12 pl-md-1">
+                                <div class="entry-title title-sm">
+                                    <h2><a>{{ event.subject }}</a></h2>
+                                </div>
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li><a href="#"><i class="icon-calendar3"></i> {{ event.start_time }} - {{ event.end_time }}</a></li>
+              
+                                        <li><a href="#"><i class="icon-map-marker2"></i>{{ event.location }}</a></li>
+                                        <!-- <li><a href="#"><i class="icon-calendar3"></i> 31<sup>st</sup> Mar - 3<sup>rd</sup> Apr </a></li> -->
+
+                                    </ul>
+                                </div>
+                                <div class="entry-content">
+                                    <p>{{ event.content|safe }}</p>
+                                    
+                                    {% if event.url %}
+                                      <p>{{event.url}}</p>
+                                    {% endif %}
+                                    
+                                    {% if event.location %}
+                                      <p>{{event.location}}</p>
+                                    {% endif %}
+                                    
+                                    <a href="{%url 'events'%}" class="btn btn-primary">Back to events</a>
+                                    {% if object.author == user %}
+                                      <a href="{%url 'event_update' object.id %}" class="btn btn-primary">Edit</a>
+                                      <a href="{%url 'event_delete' object.id %}" class="btn btn-danger">Delete</a>
+                                    {% else %}
+                                      {% if is_user_booked %}
+                                        <a href="{%url 'event_unbook' object.id %}" class="btn btn-primary">Unbook your spot</a>
+                                      {% else %}
+                                        <a href="{%url 'event_book' object.id %}" class="btn btn-primary">Book a spot</a>
+                                      {% endif %}
+                                    {% endif %}
+                                </div>
+                                <div class="entry-content">
+                                  {% if object.author == user %}
+                                    {% if participants %}
+                                      <p><i class="icon-user"></i> Users that requested a spot: </p>
+                                      {% for participant in participants %} 
+                                        <li>{{participant.first_name}} {{participant.last_name}} -  {{participant.email}}</li>        
+                                      {% endfor %}
+                                    {% else %}
+                                      <p>  <i class="icon-user"></i> No users requested a spot</p>
+                                    {% endif %}
+                                  {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </body>
+  </html>
+{% endblock %}

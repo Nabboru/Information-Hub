@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <body class="stretched">
+      <section id="page-title">
+
+        <div class="container">
+            <h1>News Details </h1>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{%url 'news'%}" class="btn btn-primary" style="color: #fff">Back To News</a></li>
+              </ol>
+        </div>
+
+    </section><!-- #page-title end -->
+
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+                <div class="row">
+                    <div class="entry event col-12 evnthover">
+                        <div class="grid-inner row align-items-center no-gutters p-3" border: 3px solid #f4f4f4;
+    border-radius: 5px;>
+                            <div class="col-md-12 pl-md-1">
+                                <div class="entry-title title-sm">
+                                    <h2><a>{{ object.title }}</a></h2>
+                                </div>
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li><a href="#"><i class="icon-time"></i> {{ object.creation_date }}</a></li>
+
+                                    </ul>
+                                </div>
+                                <div class="entry-content">
+                                    <p>{{ object.content|safe }}</p>
+                                    {% if object.author == user %}
+                                      <a href="{%url 'news_update' object.id %}" class="btn btn-primary">Edit</a>
+                                      <a href="{%url 'news_delete' object.id %}" class="btn btn-danger">Delete</a>                                      
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </body>
+  </html>
+{% endblock %}

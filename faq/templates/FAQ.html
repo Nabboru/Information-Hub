@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body class="stretched">
+        <!-- Page Title
+		============================================= -->
+        <section id="page-title">
+
+            <div class="container">
+                <h1>FAQs</h1>
+            </div>
+
+        </section><!-- #page-title end -->
+
+        <section id="content">
+            <div class="content-wrap">
+                <div class="container">
+
+                    <div class="row gutter-40 col-mb-80">
+                        <!-- Post Content
+						============================================= -->
+                        <div class="postcontent col-lg-12">
+                           
+                           <h4>Top Frequently Asked Question</h4>
+
+							<div class="accordion accordion-bg" data-collapsible="true">
+                                {% for q in faq %}
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="accordion-closed icon-ok-circle"></i>
+										<i class="accordion-open icon-remove-circle"></i>
+									</div>
+									<div class="accordion-title">
+										{{q.question}} 
+									</div>
+								</div>
+								<div class="accordion-content"> 
+                                        {{ q.answer}}
+                                </div>
+                                {% endfor %}
+								
+							</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</body>
+
+</html>
+{% endblock %}

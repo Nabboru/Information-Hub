@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+    <body class="stretched">
+    <section id="page-title">
+        <div class="container">
+            <h1>Edit Post </h1>
+            
+        </div>
+    </section><!-- #page-title end -->
+    {% load crispy_forms_tags %}
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+                <div class="row gutter-40 col-mb-80">
+                    <div class="postcontent col-lg-12">
+                        <div class="card-body">
+                              <form method="POST" enctype="multipart/form-data">
+                                  {% csrf_token %}
+                                    <table>
+                                        {{ form.media }}
+                                        {{ form|crispy }}
+                                    </table>
+                                <div class="col-12 form-group">
+                                  <button class="btn btn-primary m-0" id="password-form-submit" name="submit" value="login">Edit</button>
+                              </div>
+                           </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </body>
+
+    {% else %}
+    You are not allowed here unless you login... 
+{% endif %}
+{% endblock content %}
+

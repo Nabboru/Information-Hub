@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<body class="stretched">
+  <!-- Page Title
+============================================= -->
+  <section id="page-title">
+
+      <div class="container">
+          <h1>Edit profile  </h1>
+      </div>
+
+  </section><!-- #page-title end -->
+  <section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+
+            <div class="row gutter-40 col-mb-80">
+                <div class="postcontent col-lg-12">
+                      <form method = 'POST'>
+                        {% csrf_token %}
+                        {% include 'errors/form_errors.html' %}
+                          <div class="col-12 form-group">
+                            <label for="register-form-name">First Name:</label>
+                            <input type="text" id="register-form-name" name="first_name" value="{{ user.first_name }}" class="form-control" />
+                          </div>
+                          
+                          <div class="col-12 form-group">
+                            <label for="register-form-name">Last Name:</label>
+                            <input type="text" id="register-form-name" name="last_name" value="{{ user.last_name }}" class="form-control" />
+                          </div>
+                
+                          <div class="col-12 form-group">
+                            <label for="register-form-email">Email Address:</label>
+                            <input type="text" id="register-form-email" name="email" value="{{ user.email }}" class="form-control" />
+                          </div>
+                          
+                          <div class="col-12 form-group">
+                            <label for="register-form-phone">Date of Birth:</label>
+                            <input type="date" id="register-form-dob" name="dob" value="{{ user.dob|date:'Y-m-d' }}" class="form-control" />
+                          </div>
+                
+                          <div class="col-12 form-group">
+                            <label for="register-form-phone">Phone:</label>
+                            <input type="text" id="register-form-phone" name="phone_number" value="{{ user.phone_number }}" class="form-control" />
+                          </div>
+                        <button type="submit" class="btn btn-primary" style="font-weight: 700">Update</button>
+                        <a href="{%url 'delete-user' user.id %}" class="btn btn-danger">Delete Account </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+</body>
+
+</html>
+{% endblock %}

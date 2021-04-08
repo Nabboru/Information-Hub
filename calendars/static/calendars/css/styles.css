@@ -1,0 +1,101 @@
+/* Common styles */
+body {
+  font-family: "ptsans", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.btn {
+  outline: none;
+  color: black;
+  background-color: #edf6f9;
+  box-shadow: 0 0 0 0;
+  margin-right: 3px;
+}
+
+.clearfix {
+  margin: 15px;
+}
+
+.calendar_div {
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.form {
+  margin: auto;
+}
+
+.form input, .form select, .form textarea {
+  border-radius: 5px;
+  border: 1px solid #17a2b8;
+  outline: none;
+  background: none;
+  padding: 5px;
+  width: 100%;
+}
+
+/* App styles */
+.title {
+  text-align: center;
+  margin: 10px;
+}
+
+.calendar {
+  width: 100%;
+  margin: auto;
+  font-size: 13px;
+  background-color: #edf6f9;
+}
+
+.calendar tr, .calendar td {
+  border: 0px solid black;
+    text-align: center;
+    vertical-align: 5px;
+}
+
+.calendar th {
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  background-color: #028090;
+  color: #edf6f9;
+  border-top: 1px solid #fff;  
+/*    border-left: 2px solid #fff;*/
+
+}
+
+.calendar td {
+  width: 100px;
+  height: 80px;
+  padding: 20px 0px 0px 5px;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+
+}
+
+.month {
+  font-size: 25px;
+}
+
+.date {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px;
+  color: #028090;
+}
+
+ul {
+  height: 100%;
+  padding: 0px 5px 0px 20px;
+}
+
+a{
+  color: #17a2b8;
+}

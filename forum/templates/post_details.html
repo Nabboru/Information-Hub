@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body class="stretched">
+    <section id="page-title">
+        <div class="container">
+            <h1>General forum and advice: Post details </h1>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'forum-posts' %}" class="btn btn-primary" style="color: #fff">Back To Forum</a></li>
+              </ol>
+        </div>
+
+    </section><!-- #page-title end -->
+
+    <section id="content">
+
+        <div class="content-wrap">
+            <div class="container clearfix">
+                <div class="row">
+                    <div class="entry event col-12 evnthover">
+                        <div class="grid-inner row align-items-center no-gutters p-3" border: 3px solid
+                            #f4f4f4;border-radius: 5px;>
+                            <div class="col-md-12 pl-md-1">
+                                <div class="entry-title title-sm">
+                                    <h2> {{object.subject}}</h2>
+                                </div>
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li><a href="#"><i class="icon-user"></i> {{ object.username }}</a></li>
+                                        <li><a href="#"><i class="icon-time"></i> {{object.creation_date|date:"F d, Y"}}</a></li>
+                                    </ul>
+                                </div>
+                                <div class="entry-content">
+                                    <p> {{object.content|safe}}</p>
+                                </div>
+                                <div class="entry-content">
+                                    {% if user.id == object.username.id %}
+                                    <a href="{% url 'post-update' object.pk%}" class="btn btn-primary"
+                                        disabled="disabled">Edit Post</a>
+                                    <a href="{% url 'post-delete' object.pk%}" class="btn btn-danger"
+                                        disabled="disabled">Delete Post</a>
+                                    {% endif %}
+                                </div>
+                                <div class="entry-content">
+                                    <form action="{%url 'like-post' object.pk%}" method="POST"
+                                        style="margin-bottom: 5px;">
+                                        {% csrf_token %}
+                                        {% if liked %}
+                                        <button type="submit" name="post_id" value="{{object.pk}}"
+                                            class="btn btn-primary"><i class="icon-thumbs-down"></i> Unlike</button>
+                                        {% else %}
+                                        <button type="submit" name="post_id" value="{{object.pk}}"
+                                            class="btn btn-primary"><i class="icon-thumbs-up"></i> Like</button>
+                                        {% endif %}
+
+                                    </form>
+                                    <strong class="text-secondary"> {{object.likes.count}} Likes </strong>
+                                    {% if not object.username.is_professional and not object.username.is_superuser %}
+                                        <form action="{%url 'report-post' object.pk%}" method="POST"
+                                            style="margin-bottom: 5px;">
+                                            {% csrf_token %}
+                                            {% if reported %}
+                                            <button type="submit" name="post_id" value="{{object.pk}}"
+                                                class="btn btn-info">Unreport</button>
+                                            {% elif object.reports.count == 4 %}
+                                            <div class="popup" onclick="alert_message()">
+                                                <button type="submit" name="post_id" value="{{object.pk}}"
+                                                    class="btn btn-info">Report</button>
+                                                <span class="popuptext" id="myPopup"> </span>
+                                            </div>
+                                            <script>
+                                                function alert_message() {
+                                                    alert("This post has been deleted due to being reported many times. Please refresh the broswer to go back to the Forum.");
+                                                }
+                                            </script>
+                                            {% else %}
+                                            <button type="submit" name="post_id" value="{{object.pk}}"
+                                                class="btn btn-danger">Report</button>
+                                            {% endif %}
+                                        </form>
+                                        <strong class="text-secondary"> {{object.reports.count}} Reports </strong>
+                                        <p>A post with more than 5 reports will be deleted.</p>
+                                        {% if object.reports.count == 4 %}
+                                        <strong> This post has already been reported 4 times. If you report it, it will be
+                                            deleted. Make a smart choice! </strong>
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                                <div class="entry-content" style="height: 300px; width: 100%; overflow-y: scroll;">
+                                    <a href="{% url 'add-comment' object.pk %}" class="btn btn-primary"
+                                        disabled="disabled">Add Comment</a>
+                                    {% if object.comments %}
+                                    <ul>
+                                        <br />
+                                        {% for comment in object.comments.all %}
+                                        <li>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span>
+                                                        <strong class="text-info">{{ comment.username }} </strong>
+                                                        <small class="text-muted">{{ comment.creation_date }}</small>
+                                                    </span>
+                                                    {{ comment.content|safe }}
+                                                </div>
+                                                <div class="col text-right">
+                                                    {% if user.id == comment.username.id %}
+                                                    <a href="{% url 'edit-comment' comment.pk %}"
+                                                        class="link-light">Edit </a> |
+                                                    <a href="{% url 'delete-comment' comment.pk %}" class="link-light"
+                                                        style="color:#ff0000;">Delete </a>
+                                                    <!-- style:"margin-bottom: 0px;" -->
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% else %}
+                                    <strong class="text-secondary">No comments yet...</strong>
+                                    {% endif %}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>
+{% endblock %}

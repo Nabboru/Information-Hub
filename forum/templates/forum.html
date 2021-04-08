@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body class="stretched">
+
+    <!-- Document Wrapper
+	============================================= -->
+    <div id="wrapper" class="clearfix">
+
+        <!-- Page Title
+		============================================= -->
+        <section id="page-title" class="page-title-pattern">
+
+            <div class="container">
+                <h1>Forum </h1>
+            </div>
+
+        </section><!-- #page-title end -->
+
+        <section id="content">
+            <div class="content-wrap">
+                <div class="container clearfix">
+                   
+                    <div class="row justify-content-center col-mb-50">
+                       <div class="col-md-12">
+                            <div class="well well-lg mb-0">
+                                <h3>Go to... </h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="flip-card">
+                                <div class="flip-card-front dark" style="background-image: url('../../static/images/forum/1.jpg')">
+                                    <div class="flip-card-inner">
+                                        <div class="card bg-transparent border-0">
+                                            <div class="card-body">
+                                                <h3 class="card-title mb-0">Announcements</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back no-after" style="background-color: #2139a2">
+                                    <div class="flip-card-inner">
+                                        <a href="{% url 'announcements' %}" class="btn btn-outline-light mt-2">Announcements </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="flip-card">
+                                <div class="flip-card-front dark" style="background-image: url('../../static/images/forum/2.jpg">
+                                    <div class="flip-card-inner">
+                                        <div class="card bg-transparent border-0">
+                                            <div class="card-body">
+                                                <h3 class="card-title mb-0"> General Forum And Advice </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back no-after" style="background-color: #2139a2">
+                                    <div class="flip-card-inner">
+                                        <a href="{% url 'forum-posts' %}" class="btn btn-outline-light mt-2">General Forum And Advice</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="flip-card">
+                                <div class="flip-card-front dark" style="background-image: url('../../static/images/forum/3.jpg">
+                                    <div class="flip-card-inner">
+                                        <div class="card bg-transparent border-0">
+                                            <div class="card-body">
+                                                <h3 class="card-title mb-0">My Posts</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back no-after" style="background-color: #2139a2">
+                                    <div class="flip-card-inner">
+                                        <a href="{% url 'my-posts' %}" class="btn btn-outline-light mt-2"> My Posts </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </section><!-- #content end -->
+
+
+        
+    </div><!-- #wrapper end -->
+
+
+</body>
+
+</html>
+{% endblock %}

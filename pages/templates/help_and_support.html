@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body class="stretched">
+        <!-- Page Title
+		============================================= -->
+        <section id="page-title">
+
+            <div class="container">
+                <h1>Help and Support </h1>
+            </div>
+
+        </section><!-- #page-title end -->
+
+        <section id="content">
+            <div class="content-wrap">
+                <div class="container">
+
+                    <div class="row gutter-40 col-mb-80">
+                        <!-- Post Content
+						============================================= -->
+                        <div class="postcontent col-lg-12">
+							<div class="accordion accordion-bg" data-collapsible="true">
+								{% for c in help_support %}
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="accordion-closed icon-ok-circle"></i>
+										<i class="accordion-open icon-remove-circle"></i>
+									</div>
+									<div class="accordion-title">
+										{{c.name}}  
+									</div>
+								</div>
+								<div class="accordion-content">{{c.details}}<br> 
+                                {{c.contact}}</div>
+									{% endfor %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</body>
+
+</html>
+{% endblock %}

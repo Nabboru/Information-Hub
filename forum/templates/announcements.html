@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <body class="stretched">
+      <section id="page-title">
+
+        <div class="container">
+            <h1>announcement </h1>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'forum' %}" class="btn btn-primary" style="color: #fff">Go Back</a></li>
+            </ol>
+        </div>
+
+    </section><!-- #page-title end -->
+
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+                <div class="row">
+                  {% for announcement in announcements %}
+                      <div class="entry event col-12 evnthover">
+                          <div class="grid-inner row align-items-center no-gutters p-3" border: 3px solid #f4f4f4;border-radius: 5px;>
+                              <div class="col-md-12 pl-md-1">
+                                  <div class="entry-title title-sm">
+                                      <h2> <a href="{% url 'ann-post-details' announcement.id %}" class="link-light"> {{announcement.subject}}</a></h2>
+                                  </div>
+                                  <div class="entry-meta">
+                                      <ul>
+                                        <li><a href="#"><i class="icon-time"></i> {{announcement.creation_date|date:"F d, Y"}}</a></li>
+                                      </ul>
+                                  </div>
+                                  <div class="entry-content">
+                                      <p>{{announcement.content|safe|slice:200}}...</p>
+                                  </br></br>
+                                      <a href="{% url 'ann-post-details' announcement.id %}" class="btn btn-primary" disabled="disabled">Read more</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                {% empty %}
+              <div class="card mb-4 border-0">
+                  <h2 class = "card-title"> No posts yet...</h2>
+                </div>
+          {% endfor %}
+                </div>
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo;First </a>&nbsp;
+            <a href="?page={{ page_obj.previous_page_number }}">&lt;Previous</a>&nbsp;
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next&gt;</a>&nbsp;
+            <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+            </div>
+        </div>
+    </section>
+  </body>
+  </html>
+{% endblock %}

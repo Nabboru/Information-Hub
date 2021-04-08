@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <body class="stretched">
+      <section id="page-title">
+
+        <div class="container">
+            <h1>Delete Account </h1>
+        </div>
+
+    </section><!-- #page-title end -->
+
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+                <div class="row">
+                    <div class="entry event col-12 evnthover">
+                        <div class="grid-inner row align-items-center no-gutters p-3" border: 3px solid #f4f4f4;
+    border-radius: 5px;>
+                            <div class="col-md-8 pl-md-1">
+                                <div class="entry-title title-sm">
+                                  <h2>Are you sure you want to delete your account ?</h2>
+                                  <p>Hope you had a great time being with us. Take care and good bye !</p>
+                                </div>
+                                <div class="entry-content">
+                                  <form method="POST" enctype="multipart/form-data"> 
+                                    <!-- Security token -->
+                                    {% csrf_token %}             
+                                    <input type="submit" class="btn btn-danger" value="Yes, Delete">
+                                    <a href="{% url 'user' %}" class="btn btn-primary">Cancel</a>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </body>
+  </html>
+{% endblock %}

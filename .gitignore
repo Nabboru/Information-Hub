@@ -1,0 +1,39 @@
+# Visual Studio Code # 
+.vscode/* 
+!.vscode/settings.json 
+!.vscode/tasks.json 
+!.vscode/launch.json 
+!.vscode/extensions.json 
+.history
+
+# IntelliJ
+.idea/*
+
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+*__pycache__*
+*.sqlite3
+media
+*.coverage
+
+# Backup files # 
+*.bak 
+
+# Python # 
+*.py[cod] 
+*$py.class 
+__pycache__/
+
+# SQlite #
+*.sqlite3
+
+# Virtual Environment
+**/logs
+
+.metals
+.vscode
+staticfiles
+venv

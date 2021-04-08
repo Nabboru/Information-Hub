@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <body>
+    <div class="container">
+      <div class="myCard">
+        <div class="row">
+          <div class="col-md">
+            <div class="myLeftCtn text-center">
+            <p>
+            Thank you for your email confirmation. Now you can login your account.
+            </p>
+              <a href="{% url 'login' %}">
+              <input
+                type="button"
+                value="Login"
+                style="cursor: pointer"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock %}

@@ -1,0 +1,1 @@
+web: gunicorn informationhub.wsgi --log-file -

@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body class="stretched">
+        <!-- Page Title
+		============================================= -->
+        <section id="page-title">
+
+            <div class="container">
+                <h1>Help and Support </h1>
+            </div>
+
+        </section><!-- #page-title end -->
+
+        <section id="content">
+            <div class="content-wrap">
+                <div class="container">
+
+                    <div class="row gutter-40 col-mb-80">
+                        <!-- Post Content
+						============================================= -->
+                        <div class="postcontent col-lg-12">
+							<div class="accordion accordion-bg" data-collapsible="true">
+								{% for c in help_support %}
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="accordion-closed icon-ok-circle"></i>
+										<i class="accordion-open icon-remove-circle"></i>
+									</div>
+									<div class="accordion-title">
+										{{c.name}}  
+									</div>
+								</div>
+								<div class="accordion-content">{{c.details}}<br> 
+                                {{c.contact}}</div>
+									{% endfor %}
+								<!-- <div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="accordion-closed icon-ok-circle"></i>
+										<i class="accordion-open icon-remove-circle"></i>
+									</div>
+									<div class="accordion-title">
+										Alateen
+									</div>
+								</div>
+								<div class="accordion-content">Alateen is part of the Al-Anon fellowship and has been developed for young people, aged 12 to 20, who are affected by a problem drinker.<br>
+                                    Tel:0207 403 0888  <br>
+                                    Web: www.al-anon.alateen.org/for-alateen  </div>
+
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="accordion-closed icon-ok-circle"></i>
+										<i class="accordion-open icon-remove-circle"></i>
+									</div>
+									<div class="accordion-title">
+										Addaction 
+									</div>
+								</div>
+								<div class="accordion-content">Provides treatment, help and advice about alcohol and drugs for young people and adults. Manages more that 120 services in 80 locations in England and Scotland.<br>
+                                    Tel:0207 251 5860 <br>
+                                    Web: www.addaction.org.uk</div>
+								
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="accordion-closed icon-ok-circle"></i>
+										<i class="accordion-open icon-remove-circle"></i>
+									</div>
+									<div class="accordion-title">
+										Childline
+									</div>
+								</div>
+								<div class="accordion-content">Provides confidential help and counselling for young people. <br>
+                                    Tel: 0800 1111 (Freephone) <br>
+                                    Web: www.childline.org.uk</div>
+								
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="accordion-closed icon-ok-circle"></i>
+										<i class="accordion-open icon-remove-circle"></i>
+									</div>
+									<div class="accordion-title">
+										Drinkline
+									</div>
+								</div>
+								<div class="accordion-content">If you’re worried about your own or someone else’s drinking, you can call this free helpline, in complete confidence. 
+                                    They can put you in touch with your local alcohol advice centre for help and advice. <br>
+                                    Tel: 0300 123 1110
+                                </div>
+                                <div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="accordion-closed icon-ok-circle"></i>
+										<i class="accordion-open icon-remove-circle"></i>
+									</div>
+									<div class="accordion-title">
+										Pals
+									</div>
+								</div>
+								<div class="accordion-content">The Patient Advice and Liaison Service (PALS) is a service that offers support, information and assistance to patients, relatives and visitors. 
+                                    They can also provide help and advice if you have a concern or complaint that staff have not been able to resolve for you. The PALS office is located on the ground floor of the Hambleden Wing, 
+                                    near the main entrance on Bessemer Road - staff will be happy to direct you. <br>
+                                    Address: PALS at King’s College Hospital, Denmark Hill, London SE5 9RS <br>
+                                    Tel:  020 3299 3601<br>
+                                    Email: Email: kch-tr.pals@nhs.net<br>
+                                    Web:  www.kch.nhs.uk/contact/pals</div>
+                                <div class="accordion-header">
+                                    <div class="accordion-icon">
+                                        <i class="accordion-closed icon-ok-circle"></i>
+                                         <i class="accordion-open icon-remove-circle"></i>
+                                    </div>
+                                        <div class="accordion-title">
+                                            King's College Hospital 
+                                        </div>
+                                    </div>
+                                    <div class="accordion-content">To find out more about our transition service, please contact one of our administrators on . <br>
+                                        Tel: 020 3299 1162 or 020 3299 3774 <br>
+                                        For queries about your appointment or for outpatients, please contact the outpatients clerk. <br>
+                                        Tel: 020 3299 4504 (paediatrics)  <br>
+                                        Tel: 020 3299 4979 (adults).<br>
+                                    </div>
+
+							 -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</body>
+
+</html>
+{% endblock %}

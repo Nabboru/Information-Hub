@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <body class="stretched">
+      <section id="page-title">
+
+        <div class="container">
+            <h1>Delete Comment </h1>
+        </div>
+
+    </section><!-- #page-title end -->
+
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+                <div class="row">
+                    <div class="entry event col-12 evnthover">
+                        <div class="grid-inner row align-items-center no-gutters p-3" border: 3px solid #f4f4f4;
+    border-radius: 5px;>
+                            <div class="col-md-8 pl-md-1">
+                                <div class="entry-title title-sm">
+                                  <h2>DELETE THIS COMMENT ?</h2>
+                                  <br>
+                                    <h3>{{object.content|safe}}</a></h3>
+                                    <h4><i class="icon-time"></i> {{object.creation_date}} <h4>
+                                </div>
+        
+                                <div class="entry-content">
+                                  <form method="POST" enctype="multipart/form-data"> 
+                                    <!-- Security token -->
+                                    {% csrf_token %}             
+                                    <button class = "btn btn-danger " type = "submit" href = "{% url 'forum-posts' %}"> Delete </button>
+                                    <a class = "btn btn-primary" href = "{% url 'post-details' object.id%}"> Cancel </a>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </body>
+  </html>
+{% endblock %}
+
+

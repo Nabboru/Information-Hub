@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<html>
+  <body class="stretched">
+    {% include 'errors/form_errors.html' %}
+    <section id="page-title" class="page-title-pattern">
+
+      <div class="container">
+          <h1>My Account</h1>
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Login</li>
+          </ol>
+      </div>
+
+  </section><!-- #page-title end -->
+
+  <section id="content">
+      <div class="content-wrap">
+          <div class="container clearfix">
+              <div class="row justify-content-center">
+
+                  <div class="col-md-6">
+
+                      <div class="well well-lg mb-0">
+                          <form id="register-form" name="register-form" class="row mb-0" method="post">
+                           <div class="col-12">
+                                  <h3>Patient Sign-up? Register for an Account </h3>
+                              </div>
+            {% csrf_token %}
+          <div class="col-12 form-group">
+            <label for="register-form-name">First Name:</label>
+            <input type="text" id="register-form-name" name="first_name" value="" class="form-control" />
+          </div>
+          
+          <div class="col-12 form-group">
+            <label for="register-form-name">Last Name:</label>
+            <input type="text" id="register-form-name" name="last_name" value="" class="form-control" />
+          </div>
+
+          <div class="col-12 form-group">
+            <label for="register-form-email">Email Address:</label>
+            <input type="text" id="register-form-email" name="email" value="" class="form-control" />
+          </div>
+          
+          <div class="col-12 form-group">
+            <label for="register-form-phone">Date of Birth:</label>
+            <input type="date" id="register-form-dob" name="dob" value="" class="form-control" />
+          </div>
+
+          <div class="col-12 form-group">
+            <label for="register-form-phone">Phone:</label>
+            <input type="text" id="register-form-phone" name="phone_number" value="" class="form-control" />
+          </div>
+
+          <div class="col-12 form-group">
+            <label for="register-form-password">Password:</label>
+            <input type="password" id="register-form-password" name="password1" value="" class="form-control" />
+          </div>
+
+          <div class="col-12 form-group">
+            <label for="register-form-repassword">Re-enter Password:</label>
+            <input type="password" id="register-form-repassword" name="password2" value="" class="form-control" />
+          </div>
+          
+          <div class="col-12 form-group">
+            <input type="hidden" id="register-form-patient" name="is_patient" value="True" class="form-control" />
+          </div>
+
+          <div class="col-12 form-group">
+            <button class="button button-3d button-blue m-0" id="register-form-submit" name="submit" value="register">Register Now</button>
+          </div>
+          <div class="col-12 text-center p-2">
+                                  <span>
+                                    <b>
+                                        Already a User? Please <a href="{% url 'login' %}">Login</a> to Your Account
+                                    </b>
+                                  </span>
+
+                              </div>
+        </form>
+                      </div>
+
+                  </div>
+
+
+
+              </div>
+
+
+          </div>
+      </div>
+  </section><!-- #content end -->
+
+
+  </body>
+</html>
+{% endblock %}

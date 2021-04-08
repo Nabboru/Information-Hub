@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body class="stretched">
+
+    <!-- Document Wrapper
+	============================================= -->
+    <div id="wrapper" class="clearfix">
+
+        <!-- Page Title
+		============================================= -->
+        <section id="page-title" class="page-title-pattern">
+
+            <div class="container">
+                <h1>Sign up</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Login</li>
+                    <li class="breadcrumb-item active" aria-current="page">Registeration</li>
+
+                </ol>
+            </div>
+
+        </section><!-- #page-title end -->
+
+        <section id="content">
+            <div class="content-wrap">
+                <div class="container clearfix">
+                   
+                    <div class="row justify-content-center col-mb-50">
+                       <div class="col-md-12">
+                            <div class="well well-lg mb-0">
+                                <h3>Register Your New Account As</h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="flip-card">
+                                <div class="flip-card-front dark" style="background-image: url('../../static/images/accounts/patient.jpg')">
+                                    <div class="flip-card-inner">
+                                        <div class="card bg-transparent border-0">
+                                            <div class="card-body">
+                                                <h3 class="card-title mb-0">Patient</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back no-after" style="background-color: #2139a2">
+                                    <div class="flip-card-inner">
+                                        <a href="{% url 'patient-signup' %}" class="btn btn-outline-light mt-2">Register As A Patient</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="flip-card">
+                                <div class="flip-card-front dark" style="background-image: url('../../static/images/accounts/family.jpg">
+                                    <div class="flip-card-inner">
+                                        <div class="card bg-transparent border-0">
+                                            <div class="card-body">
+                                                <h3 class="card-title mb-0"> Family</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back no-after" style="background-color: #2139a2">
+                                    <div class="flip-card-inner">
+                                        <a href="{% url 'family-signup' %}" class="btn btn-outline-light mt-2">Register As A Family</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="flip-card">
+                                <div class="flip-card-front dark" style="background-image: url('../../static/images/accounts/doctor.jpg')">
+                                    <div class="flip-card-inner">
+                                        <div class="card bg-transparent border-0">
+                                            <div class="card-body">
+                                                <h3 class="card-title mb-0">HealthCare Professionals</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back no-after" style="background-color: #2139a2">
+                                    <div class="flip-card-inner">
+                                        <a href="{% url 'healthprof-signup' %}" class="btn btn-outline-light mt-2">Register As A HealthCare Professionals</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </section><!-- #content end -->
+
+
+        
+    </div><!-- #wrapper end -->
+
+
+</body>
+
+</html>
+{% endblock %}

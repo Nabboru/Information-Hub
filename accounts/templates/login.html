@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<html>
+{% include 'errors/form_errors.html' %}
+  <body class="stretched">
+    <section id="content">
+      <div class="content-wrap">
+          <div class="container clearfix">
+              <div class="row justify-content-center">
+
+                  <div class="col-md-6">
+
+                      <div class="well well-lg mb-0">
+                          <form id="login-form" name="login-form" class="row" action="{% url 'login' %}" method="post">
+
+                              <div class="col-12">
+                                  <h3>Login to your Account</h3>
+                              </div>
+                              {% csrf_token %}
+                              <div class="col-12 form-group">
+                                  <label for="login-form-username">Email:</label>
+                                  <input type="text" id="login-form-username" name="username" value="" class="form-control" />
+                              </div>
+
+                              <div class="col-12 form-group">
+                                  <label for="login-form-password">Password:</label>
+                                  <input type="password" id="login-form-password" name="password" value="" class="form-control" />
+                              </div>
+
+                              <div class="col-12 form-group">
+                                  <button class="btn btn-primary m-0" id="login-form-submit" name="submit" value="login">Login</button>
+                              </div>
+                              <div class="col-12 text-center p-2">
+                                  <span>
+                                    <b>
+                                        <a href="{% url 'signup' %}">New Signup?</a> Register for an Account
+                                    </b>
+                                  </span>
+
+                              </div>
+                              <div class="col-12 text-center p-2">
+                                <span>
+                                  <b>
+                                      <a href="{% url 'password-reset' %}">Forgotten Password?</a> Reset your password
+                                  </b>
+                                </span>
+
+                            </div>
+
+                          </form>
+                      </div>
+
+                  </div>
+
+
+
+              </div>
+
+
+          </div>
+      </div>
+    </section><!-- #content end -->
+
+  </body>
+</html>
+{% endblock %}

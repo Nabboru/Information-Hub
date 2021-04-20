@@ -11,11 +11,9 @@ Pratibha Jain
 Sarthak Baral  
 Shitin Kamalia  
 
-## Deployed version and Credentials
+## Deployed version
 URL: https://young-adult-liver-service.herokuapp.com/
  
- * Healthcare user: It needs a nhs.net email, so it is not possible for us to provide an account.
-
 ## References
 * Project based on 'Learning Django' by Caleb Smith via LinkedIn Learning.
 * Calendar based on : https://github.com/huiwenhw/django-calendar

@@ -13,23 +13,6 @@ Shitin Kamalia
 
 ## Deployed version and Credentials
 URL: https://young-adult-liver-service.herokuapp.com/
-
-Credentials:
-
-* Admin user: 
-
-      email: admin@email.com
-      password: 123
- 
-* Patient user:  
-
-      email: leticia.piucco@gmail.com
-      password: jR*kQ$spEut7
-      
-* Family user:
-      
-      email: leticiapiucco15@gmail.com
-      password: jR*kQ$spEut7
  
  * Healthcare user: It needs a nhs.net email, so it is not possible for us to provide an account.
 

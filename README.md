@@ -15,8 +15,8 @@ Shitin Kamalia
 URL: https://young-adult-liver-service.herokuapp.com/
 
 ## Tech/framework used
-<b>Built with</b>
 - [Django](https://www.djangoproject.com)
+- CSS and Javascript
 
 ## References
 * Project based on 'Learning Django' by Caleb Smith via LinkedIn Learning.
